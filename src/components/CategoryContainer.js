@@ -1,11 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import CategoryCard from './CategoryCard'
 
-export default class CategoryContainer extends Component {
-    render() {
-        return (
-            <div>
-                category container!
-            </div>
-        )
+
+export const CategoryContainer = (props) => {
+    console.log("here", props)
+    const renderKindnesses = () => {
+        return props.kindnessArray.map(kindnessObj => <CategoryCard key={kindnessObj.id} kindnessObj={kindnessObj}/>)
     }
+
+
+    return (
+        <>
+        <form>
+            <input/>
+        </form>
+        <div className="list"> {renderKindnesses()}</div>
+        </>
+    )
 }
+
+export default CategoryContainer;

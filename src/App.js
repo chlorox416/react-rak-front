@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import CategoryContainer from './components/CategoryContainer';
-
+import KindnessForm from './components/KindnessForm';
 
 class App extends Component{
   state={
@@ -33,15 +33,19 @@ componentDidMount() {
  })
 }
 
+addKindness = (kindnessObj) => {
+  fetch('http://localhost:3000/api/v1/kindnesses',{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(kindnessObj)
+})
+    .then(resp =>resp.json())
+    .then(data => this.setState({kindnessArray: [...this.state.kindnessArray, data]}))
+}
 
-
-
-
-
-  // fetch('http://localhost:3000/api/v1/kindnesses')
-  // .then(resp => resp.json())
-  // // .then(data => console.log(data))
-  // .then(data => this.setState({kindnessArray:data}))}
 
 
 
@@ -53,13 +57,16 @@ componentDidMount() {
           <div className="App">
             <header className="App-header">
               <Switch>
-                <Route 
+                <Route
                   exact path="/"
                   component={Homepage}/>
                 <Route 
                   path="/categories" 
                   render={() => (
+                    <>
+                    <KindnessForm addKindness={this.addKindness}/>
                     <CategoryContainer kindnessArray={this.state.kindnessArray}/>
+                    </>
                 )}/>
               </Switch>
             </header>

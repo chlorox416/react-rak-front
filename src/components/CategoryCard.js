@@ -23,4 +23,4 @@ class CategoryCard extends React.Component {
 
 
 
-export default CategoryCard
+export default CategoryCard;

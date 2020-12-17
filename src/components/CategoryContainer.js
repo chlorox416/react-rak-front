@@ -8,7 +8,6 @@ export const CategoryContainer = (props) => {
         return props.kindnessArray.map(kindnessObj => <CategoryCard key={kindnessObj.id} kindnessObj={kindnessObj} removeHandler={props.removeHandler}/>)
     }
 
-
     return (
         <>
         <form>

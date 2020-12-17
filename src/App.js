@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import CategoryContainer from './components/CategoryContainer';
+import TaskContainer from './components/TaskContainer';
 import KindnessForm from './components/KindnessForm';
 
 class App extends Component{
@@ -75,6 +76,12 @@ removeHandler = (id) => {
                     <CategoryContainer kindnessArray={this.state.kindnessArray} removeHandler={this.removeHandler}/>
                     </>
                 )}/>
+                <Route
+                  path="/tasks"
+                  render={() => (
+                    <TaskContainer userKindnessArray={this.state.userKindnessArray}/>
+                  )
+                  }/>
               </Switch>
             </header>
           </div>

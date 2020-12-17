@@ -50,12 +50,17 @@ addKindness = (kindnessObj) => {
 
 
 removeHandler = (id) => {
+  fetch(`http://localhost:3000/api/v1/kindnesses/${id}`, {
+    method: 'DELETE'
+})
+.then(resp => resp.json())
+.then(() => {
   let foundObj = this.state.kindnessArray.find(kindnessObj => kindnessObj.id === id)
   let copyOfKindness = [...this.state.kindnessArray]
   let index = copyOfKindness.indexOf(foundObj)
   copyOfKindness.splice(index, 1)
   this.setState({kindnessArray: copyOfKindness})
-}
+})}
 
 
   render() {

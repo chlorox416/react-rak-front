@@ -5,7 +5,7 @@ import CategoryCard from './CategoryCard'
 export const CategoryContainer = (props) => {
     // console.log("here",props)
     const renderKindnesses = () => {
-        return props.kindnessArray.map(kindnessObj => <CategoryCard key={kindnessObj.id} kindnessObj={kindnessObj}/>)
+        return props.kindnessArray.map(kindnessObj => <CategoryCard key={kindnessObj.id} kindnessObj={kindnessObj} removeHandler={props.removeHandler}/>)
     }
 
 

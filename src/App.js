@@ -34,6 +34,7 @@ componentDidMount() {
 }
 
 addKindness = (kindnessObj) => {
+  debugger
   fetch('http://localhost:3000/api/v1/kindnesses',{
     method: "POST",
     headers: {
@@ -47,7 +48,13 @@ addKindness = (kindnessObj) => {
 }
 
 
-
+removeHandler = (id) => {
+  let foundObj = this.state.kindnessArray.find(kindnessObj => kindnessObj.id === id)
+  let copyOfKindness = [...this.state.kindnessArray]
+  let index = copyOfKindness.indexOf(foundObj)
+  copyOfKindness.splice(index, 1)
+  this.setState({kindnessArray: copyOfKindness})
+}
 
 
   render() {
@@ -65,7 +72,7 @@ addKindness = (kindnessObj) => {
                   render={() => (
                     <>
                     <KindnessForm addKindness={this.addKindness}/>
-                    <CategoryContainer kindnessArray={this.state.kindnessArray}/>
+                    <CategoryContainer kindnessArray={this.state.kindnessArray} removeHandler={this.removeHandler}/>
                     </>
                 )}/>
               </Switch>

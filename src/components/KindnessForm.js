@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class KindnessForm extends Component{
 
 state = {
-    action: "",
+    act: "",
     category: ""
 }
 
@@ -25,7 +25,7 @@ render() {
         <div className="container">
             <form className="add-toy-form" onSubmit={this.handleSubmit}>
                 <h3>Create a new RAK!</h3>
-                <input type="text" name="action" placeholder="New RAC..." className="input-text" value={this.state.action} onChange={this.handleChange}/>
+                <input type="text" name="act" placeholder="New RAK..." className="input-text" value={this.state.action} onChange={this.handleChange}/>
                 <br/>
                 <input type="text" name="category" placeholder="Enter Category..." className="input-text" value={this.state.category} onChange={this.handleChange}/>
                 <br/>

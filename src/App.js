@@ -35,7 +35,7 @@ componentDidMount() {
 }
 
 addKindness = (kindnessObj) => {
-  debugger
+  // debugger
   fetch('http://localhost:3000/api/v1/kindnesses',{
     method: "POST",
     headers: {

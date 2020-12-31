@@ -2,16 +2,13 @@ import React from 'react'
 
 
 class TaskCard extends React.Component {
-    state = {
-        clicked: false
-        // notCompleted: false
-    }
+    // state = {
+    //     clicked: false
+    //     // notCompleted: false
+    // }
 
     toggleHandler = () => {
-        this.setState({
-            clicked: !this.state.clicked,
-            notCompleted: !this.state.notCompleted
-        })
+        this.props.completeHandler(this.props.taskObj)
     }
 
 
@@ -31,10 +28,9 @@ class TaskCard extends React.Component {
                 <h3>{this.props.taskObj.date}</h3>
                 <p>{this.props.taskObj.note}</p>
                 <p>{this.props.taskObj.kindness.act} </p>
-                {/* {this.state.clicked? <p>{"No"}</p> : <p>{"Yes - It's Done"}</p>}
-                {this.props.taskObj.completion? <p>{"No"}</p> : <p>{"Yes - It's Done"}</p>} */}
-                {this.props.taskObj.completion ? <p>{"~RAKed IT!~"}</p> : <p >{""}</p>}
-                {this.props.taskObj.completion ? <p>{""}</p> : <button >{"Say No More!"}</button>}
+                {this.props.taskObj.completion ? <button onClick={this.toggleHandler}>"~RAKed IT!~"</button> : <button onClick={this.toggleHandler} >"Say No More!"</button>}
+                {/* {this.props.taskObj.completion ? <p>{"~RAKed IT!~"}</p> : <button onClick={()=>this.props.completeHandler(this.props.taskObj.id)} >"Say No More!"</button>} */}
+        
         
 
             </div>

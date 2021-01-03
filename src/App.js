@@ -5,6 +5,8 @@ import CategoryContainer from "./components/CategoryContainer";
 import TaskContainer from "./components/TaskContainer";
 import KindnessForm from "./components/KindnessForm";
 import Search from "./components/Search";
+import "./App.css";
+import Header from "./Header";
 
 class App extends Component {
   state = {
@@ -126,39 +128,36 @@ class App extends Component {
     // console.log(this.state.kindnessArray)
     return (
       <Router>
-        <div className="App">
-          <header className="App-header">
-            <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route
-                path="/categories"
-                render={() => (
-                  <>
-                    <KindnessForm addKindness={this.addKindness} />
-                    {/* <CategoryContainer kindnessArray={this.state.kindnessArray} removeHandler={this.removeHandler}/> */}
-                    <Search
-                      searchTerm={this.state.searchTerm}
-                      handleChange={this.handleChange}
-                    />
-                    <CategoryContainer
-                      kindnessArray={this.filterKindness()}
-                      removeHandler={this.removeHandler}
-                    />
-                  </>
-                )}
+        <Route path="/:page" component={Header} />
+        <Switch>
+          <Route exact path="/home" component={Homepage} />
+          <Route
+            path="/categories"
+            render={() => (
+              <>
+                <KindnessForm addKindness={this.addKindness} />
+                {/* <CategoryContainer kindnessArray={this.state.kindnessArray} removeHandler={this.removeHandler}/> */}
+                <Search
+                  searchTerm={this.state.searchTerm}
+                  handleChange={this.handleChange}
+                />
+                <CategoryContainer
+                  kindnessArray={this.filterKindness()}
+                  removeHandler={this.removeHandler}
+                />
+              </>
+            )}
+          />
+          <Route
+            path="/tasks"
+            render={() => (
+              <TaskContainer
+                userKindnessArray={this.state.userKindnessArray}
+                completeHandler={this.completeHandler}
               />
-              <Route
-                path="/tasks"
-                render={() => (
-                  <TaskContainer
-                    userKindnessArray={this.state.userKindnessArray}
-                    completeHandler={this.completeHandler}
-                  />
-                )}
-              />
-            </Switch>
-          </header>
-        </div>
+            )}
+          />
+        </Switch>
       </Router>
     );
   }

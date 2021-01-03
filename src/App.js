@@ -104,6 +104,19 @@ class App extends Component {
     );
   };
 
+  filterUserKindnesses = () => {
+    return this.state.userKindnessArray.filter(
+      (taskObj) =>
+        taskObj.date
+          .toLowerCase()
+          .includes(this.state.searchTerm.toLowerCase()) ||
+        taskObj.kindness.act
+          .toLowerCase()
+          .includes(this.state.searchTerm.toLowerCase())
+    );
+  };
+  
+
   // completeHandler = (id) => {
   //   fetch(`http://localhost:3000/api/v1/user_kindnesses/${id}`, {
   //     method: "PATCH",
@@ -149,12 +162,19 @@ class App extends Component {
             )}
           />
           <Route
-            path="/tasks"
+            path="/history"
             render={() => (
-              <TaskContainer
-                userKindnessArray={this.state.userKindnessArray}
-                completeHandler={this.completeHandler}
-              />
+              <>
+                <Search
+                  searchTerm={this.state.searchTerm}
+                  handleChange={this.handleChange}
+                  />
+                <TaskContainer
+                  userKindnessArray={this.filterUserKindnesses()}
+                  // userKindnessArray={this.state.userKindnessArray}
+                  completeHandler={this.completeHandler}
+                />
+              </>
             )}
           />
         </Switch>

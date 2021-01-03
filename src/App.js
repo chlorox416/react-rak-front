@@ -184,3 +184,5 @@ class App extends Component {
 }
 
 export default App;
+// add category to history/task
+// allow search for ^

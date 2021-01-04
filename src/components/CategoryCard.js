@@ -19,10 +19,11 @@ class CategoryCard extends React.Component {
     render() {
         return (
             <div className="card">
-                <h3>{this.props.kindnessObj.category}</h3>
-                <p>{this.props.kindnessObj.act}</p>
-                <button onClick={() => this.props.removeHandler(this.props.kindnessObj.id)}>Delete</button><></>
-                {this.state.clicked? <button onClick={this.toggleHandler}>Scheduled!</button> : <button onClick={this.toggleHandler} >Remind me!</button>}
+                <div class="ui container"></div>
+                <h3>{this.props.kindnessObj.act}</h3>
+                <p>Categtory: {this.props.kindnessObj.category}</p>
+                <button class="ui tiny button" onClick={() => this.props.removeHandler(this.props.kindnessObj.id)}>Delete</button><></>
+                {this.state.clicked? <button class="ui tiny button" onClick={this.toggleHandler}>Scheduled!</button> : <button class="ui tiny button" onClick={this.toggleHandler} >Remind me!</button>}
             </div>
         )
     }

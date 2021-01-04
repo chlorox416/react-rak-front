@@ -25,11 +25,11 @@ class TaskCard extends React.Component {
 
         return (
             <div className="card">
-                <h3>Date Completed: {this.props.taskObj.date}</h3>
+                <h3>Date: {this.props.taskObj.date}</h3>
                 <p>Category: {this.props.taskObj.kindness.category}</p>
                 <p>{this.props.taskObj.note}</p>
                 <p>Action: {this.props.taskObj.kindness.act} </p>
-                {this.props.taskObj.completion ? <button onClick={this.toggleHandler}>"~RAKed IT!~"</button> : <button onClick={this.toggleHandler} >"Say No More!"</button>}
+                {this.props.taskObj.completion ? <button class="ui tiny button" onClick={this.toggleHandler}>Completed!</button> : <button class="ui tiny button" onClick={this.toggleHandler} >Pending</button>}
                 {/* {this.props.taskObj.completion ? <p>{"~RAKed IT!~"}</p> : <button onClick={()=>this.props.completeHandler(this.props.taskObj.id)} >"Say No More!"</button>} */}
         
         

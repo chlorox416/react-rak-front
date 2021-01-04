@@ -7,8 +7,11 @@ import KindnessForm from "./components/KindnessForm";
 import Search from "./components/Search";
 import "./App.css";
 import Header from "./Header";
+import 'semantic-ui-css/semantic.min.css'
 
-class App extends Component {
+
+
+class App extends React.Component {
   state = {
     kindnessArray: [],
     usersArray: [],

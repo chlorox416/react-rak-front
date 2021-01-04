@@ -12,13 +12,13 @@ const CategoryContainer = (props) => {
     ));
   };
   console.log(props.kindnessArray);
+  
+  
   return (
     <>
-      {/* <form>
-        <input value="Seach here" /> <br></br>
-      </form> */}
-
-      <div className="list"> {renderKindnesses()}</div>
+  
+      <div class="ui divider"></div>
+      <div class="ui container" className="list"> {renderKindnesses()}</div>
     </>
   );
 };

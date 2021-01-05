@@ -17,7 +17,7 @@ const CategoryContainer = (props) => {
 
   return (
     <>
-      <Divider horizontal>Raks</Divider>
+      <Divider horizontal>RAKs</Divider>
 
       {/* <div class="ui container" className="list"> {renderKindnesses()}</div> */}
       <Card.Group itemsPerRow={4}>{renderKindnesses()}</Card.Group>

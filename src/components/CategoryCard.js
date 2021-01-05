@@ -52,7 +52,7 @@ class CategoryCard extends React.Component {
           <Icon
             className="close"
             name="close"
-            color="red"
+            color="black"
             onClick={() => this.props.removeHandler(this.props.kindnessObj.id)}
           />
           {this.state.clicked ? (
@@ -87,23 +87,17 @@ class CategoryCard extends React.Component {
               <Modal.Content>
                 <Modal.Description>
                   <Header>Pick a time block</Header>
-                  <Button.Group>
-                    <Button onClick={() => this.thisWeek()}>this week?</Button>
-                    <Button.Or />
-                    <Button onClick={() => this.nextWeek()}>next week?</Button>
-                    <Button.Or />
-                    <Button onClick={() => this.thisMonth()}>
-                      this month?
-                    </Button>
-                  </Button.Group>
+                  {/* <Button basic grey>  */}
+                    <Button basic grey onClick={() => this.thisWeek()}>This Week?</Button>
+                    <Button basic grey onClick={() => this.nextWeek()}>Next Week?</Button>
+                    <Button basic grey onClick={() => this.thisMonth()}>This Month?</Button>
+                  {/* </Button> */}
                 </Modal.Description>
               </Modal.Content>
               <Modal.Actions>
-                <Button color="black" onClick={() => this.toggleModal()}>
-                  NVM
-                </Button>
+                <Button color="basic grey" onClick={() => this.toggleModal()}>Cancel</Button>
                 <Button
-                  content="Y33T"
+                  content="Confirm"
                   labelPosition="right"
                   icon="checkmark"
                   onClick={() => {

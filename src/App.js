@@ -68,6 +68,23 @@ class App extends React.Component {
       });
   };
 
+
+  removeTaskHandler = (id) => {
+    fetch(`http://localhost:3000/api/v1/user_kindnesses/${id}`, {
+      method: "DELETE",
+    })
+    .then((resp) => resp.json())
+    .then(() => {
+      let foundObj = this.state.userKindnessArray.find(
+        (taskObj) => taskObj.id === id
+      );
+      let copyOfTask = [...this.state.userKindnessArray];
+        let index = copyOfTask.indexOf(foundObj);
+        copyOfTask.splice(index, 1);
+        this.setState({ userKindnessArray: copyOfTask });
+      });
+  };
+
   completeHandler = (obj) => {
     fetch(`http://localhost:3000/api/v1/user_kindnesses/${obj.id}`, {
       method: "PATCH",
@@ -197,6 +214,7 @@ class App extends React.Component {
                   userKindnessArray={this.filterUserKindnesses()}
                   // userKindnessArray={this.state.userKindnessArray}
                   completeHandler={this.completeHandler}
+                  removeTaskHandler={this.removeTaskHandler}
                 />
               </>
             )}

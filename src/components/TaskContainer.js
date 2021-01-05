@@ -16,7 +16,7 @@ export const TaskContainer = (props) => {
 
     return (
         <>
-       <Divider horizontal>RAKs</Divider>
+       <Divider horizontal>PAST RAKs</Divider>
 
        <Card.Group itemsPerRow={4}>{renderTasks()}</Card.Group>
         {/* <div className="list"> {renderTasks()}</div> */}

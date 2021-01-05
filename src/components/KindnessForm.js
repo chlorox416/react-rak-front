@@ -1,41 +1,55 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Form, Button } from "semantic-ui-react";
+import '../Styles/KindnessForm.css';
 
-class KindnessForm extends Component{
-
-state = {
+class KindnessForm extends Component {
+  state = {
     act: "",
-    category: ""
-}
+    category: "",
+  };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.addKindness(this.state);
+    event.target.reset();
+  };
 
-handleSubmit = (event) => {
-    event.preventDefault()
-    this.props.addKindness(this.state)
-    event.target.reset()
-}
-
-
-handleChange = (event) => {
-    this.setState({[event.target.name]: event.target.value})
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
     //in linr 18, "name" is = to the first part of the *name* ="image"
-}
+  };
 
-render() {
+  render() {
     return (
-        <div className="container">
-            <form className="add-toy-form" onSubmit={this.handleSubmit}>
-                <h3>Create a new RAK!</h3>
-                <input type="text" name="act" placeholder="New RAK..." className="input-text" value={this.state.action} onChange={this.handleChange}/>
-                <br/>
-                <input type="text" name="category" placeholder="Enter Category..." className="input-text" value={this.state.category} onChange={this.handleChange}/>
-                <br/>
-                <input type="submit" name="submit" value="Create new RAC!" className="submit"/>
-            </form>
-        </div>
+
+      <Form className="rak-form">
+        <h3>Create a new RAK!</h3>
+        <Form.Field>
+          <label>Act:</label>
+          <input
+            type="text"
+            name="act"
+            placeholder="New RAK..."
+            className="input-text"
+            value={this.state.action}
+            onChange={this.handleChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>Category:</label>
+          <input
+            type="text"
+            name="category"
+            placeholder="Enter Category..."
+            className="input-text"
+            value={this.state.category}
+            onChange={this.handleChange}
+          />
+        </Form.Field>
+        <Button type="submit">Create New RAK!</Button>
+      </Form>
     );
+  }
 }
-
-}
-
 
 export default KindnessForm;

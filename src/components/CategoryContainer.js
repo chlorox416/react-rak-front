@@ -1,5 +1,6 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
+import { Card, Divider } from "semantic-ui-react";
 
 const CategoryContainer = (props) => {
   const renderKindnesses = () => {
@@ -8,17 +9,18 @@ const CategoryContainer = (props) => {
         key={kindnessObj.id}
         kindnessObj={kindnessObj}
         removeHandler={props.removeHandler}
+        createUserKindness={props.createUserKindness}
       />
     ));
   };
   console.log(props.kindnessArray);
-  
-  
+
   return (
     <>
-  
-      <div class="ui divider"></div>
-      <div class="ui container" className="list"> {renderKindnesses()}</div>
+      <Divider horizontal>Raks</Divider>
+
+      {/* <div class="ui container" className="list"> {renderKindnesses()}</div> */}
+      <Card.Group itemsPerRow={4}>{renderKindnesses()}</Card.Group>
     </>
   );
 };

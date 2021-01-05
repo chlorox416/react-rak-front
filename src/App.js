@@ -7,9 +7,7 @@ import KindnessForm from "./components/KindnessForm";
 import Search from "./components/Search";
 import "./App.css";
 import Header from "./Header";
-import 'semantic-ui-css/semantic.min.css'
-
-
+import "semantic-ui-css/semantic.min.css";
 
 class App extends React.Component {
   state = {
@@ -83,12 +81,35 @@ class App extends React.Component {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        // console.log(data)
         let arrayCopy = [...this.state.userKindnessArray];
         let foundObj = arrayCopy.find((taskObj) => taskObj.id === obj.id);
         foundObj.completion = !foundObj.completion;
         this.setState({ userKindnessArray: arrayCopy });
       });
+  };
+
+  createUserKindness = (kindnessObj, date) => {
+    fetch("http://localhost:3000/api/v1/user_kindnesses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user_id: 1,
+        kindness_id: kindnessObj.id,
+        completion: false,
+        note: "",
+        date: date,
+      }),
+    })
+      .then((r) => r.json())
+      .then((data => {
+        let copy = [...this.state.userKindnessArray]
+        copy.push(data)
+        this.setState({userKindnessArray: copy})
+        console.log("test", data)
+      }));
   };
 
   handleChange = (event) => {
@@ -118,7 +139,6 @@ class App extends React.Component {
           .includes(this.state.searchTerm.toLowerCase())
     );
   };
-  
 
   // completeHandler = (id) => {
   //   fetch(`http://localhost:3000/api/v1/user_kindnesses/${id}`, {
@@ -160,6 +180,7 @@ class App extends React.Component {
                 <CategoryContainer
                   kindnessArray={this.filterKindness()}
                   removeHandler={this.removeHandler}
+                  createUserKindness={this.createUserKindness}
                 />
               </>
             )}
@@ -171,7 +192,7 @@ class App extends React.Component {
                 <Search
                   searchTerm={this.state.searchTerm}
                   handleChange={this.handleChange}
-                  />
+                />
                 <TaskContainer
                   userKindnessArray={this.filterUserKindnesses()}
                   // userKindnessArray={this.state.userKindnessArray}

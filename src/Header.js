@@ -21,7 +21,7 @@ const Header = () => {
   const page = useParams().page || 'home';
 
   return (
-    <div className='header'>
+      <div className='header'>
       <HeaderLink page='home' selected={page === 'home'} />
       <HeaderLink page='categories' selected={page === 'categories'} />
       <HeaderLink page='history' selected={page === 'history'} />

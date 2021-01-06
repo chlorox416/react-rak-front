@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Divider } from "semantic-ui-react";
 import '../Styles/KindnessForm.css';
 
 class KindnessForm extends Component {
@@ -23,7 +23,8 @@ class KindnessForm extends Component {
     return (
 
       <Form className="rak-form">
-        <h3>Create a new RAK!</h3>
+        {/* <h3>Create a new RAK!</h3> */}
+        <Divider horizontal>Create a new RAK!</Divider>
         <Form.Field>
           <label>Act:</label>
           <input

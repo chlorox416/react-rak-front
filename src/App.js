@@ -5,6 +5,8 @@ import CategoryContainer from "./components/CategoryContainer";
 import TaskContainer from "./components/TaskContainer";
 import KindnessForm from "./components/KindnessForm";
 import Search from "./components/Search";
+import Icon from "./components/Icon";
+import End from "./components/End";
 import "./App.css";
 import Header from "./Header";
 import "semantic-ui-css/semantic.min.css";
@@ -188,6 +190,7 @@ class App extends React.Component {
             path="/categories"
             render={() => (
               <>
+                <Icon />
                 <KindnessForm addKindness={this.addKindness} />
                 {/* <CategoryContainer kindnessArray={this.state.kindnessArray} removeHandler={this.removeHandler}/> */}
                 <Search
@@ -199,6 +202,7 @@ class App extends React.Component {
                   removeHandler={this.removeHandler}
                   createUserKindness={this.createUserKindness}
                 />
+                <End />
               </>
             )}
           />
@@ -206,6 +210,7 @@ class App extends React.Component {
             path="/history"
             render={() => (
               <>
+                <Icon />
                 <Search
                   searchTerm={this.state.searchTerm}
                   handleChange={this.handleChange}
@@ -216,6 +221,7 @@ class App extends React.Component {
                   completeHandler={this.completeHandler}
                   removeTaskHandler={this.removeTaskHandler}
                 />
+                <End />
               </>
             )}
           />

@@ -6,11 +6,12 @@
 .headerlink-title {
   color: black;
   text-decoration: none;
-  padding: 0 5px;
+  padding:  40px;
+  font-size: x-large;
 }
 
 .headerlink-dot {
-  margin-top: -0.5rem;
+  margin-top: 0rem;
   opacity: 0;
   transition: opacity 200ms linear;
 }
@@ -20,7 +21,7 @@
 }
 
 .headerlink-dot-active {
-  margin-top: -0.5rem;
+  margin-top: .5rem;
   display: block;
 }
 

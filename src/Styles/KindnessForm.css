@@ -1,4 +1,7 @@
 .rak-form {
     width: 17%;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
 }

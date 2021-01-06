@@ -17,6 +17,7 @@ const CategoryContainer = (props) => {
 
   return (
     <>
+           
       <Divider horizontal>RAKs</Divider>
 
       {/* <div class="ui container" className="list"> {renderKindnesses()}</div> */}

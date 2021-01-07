@@ -7,7 +7,7 @@ export default class End extends Component {
 
             
             <div>
-              <img height="200px" className="icon" alt="icon" src="./trio.png" />
+              <img height="200px" className="trio" alt="icon" src="./trio.png" />
             </div>
         )
     }

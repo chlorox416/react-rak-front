@@ -1,8 +1,10 @@
 import React from "react";
-import { Button, Card, Icon, Modal, Header } from "semantic-ui-react";
+import { Button, Card, Icon, Modal, Header, Grid } from "semantic-ui-react";
 import "../Styles/CategoryCard.css";
 import dayjs from "dayjs";
+import toast, {Toaster} from "react-hot-toast";
 const today = dayjs().format("YYYY-MM-DD");
+const confirmNotify = () => toast("All Set! ")
 
 class CategoryCard extends React.Component {
   state = {
@@ -43,6 +45,7 @@ class CategoryCard extends React.Component {
 
   render() {
     return (
+      <>
       <Card className="card">
         <Card.Content>
           <Card.Header>{this.props.kindnessObj.act}</Card.Header>
@@ -87,21 +90,28 @@ class CategoryCard extends React.Component {
               <Modal.Content>
                 <Modal.Description>
                   <Header>Pick a time block</Header>
-                  {/* <Button basic grey>  */}
-                    <Button basic grey onClick={() => this.thisWeek()}>This Week?</Button>
-                    <Button basic grey onClick={() => this.nextWeek()}>Next Week?</Button>
-                    <Button basic grey onClick={() => this.thisMonth()}>This Month?</Button>
-                  {/* </Button> */}
+                  <Grid centered columns={3}>
+                    <Grid.Column>
+                    <Button grey onClick={() => this.thisWeek()}>This Week?</Button>
+                    </Grid.Column>
+                    <Grid.Column>
+                    <Button grey onClick={() => this.nextWeek()}>Next Week?</Button>
+                    </Grid.Column>
+                    <Grid.Column>
+                    <Button grey onClick={() => this.thisMonth()}>This Month?</Button>
+                    </Grid.Column>
+                  </Grid>
                 </Modal.Description>
               </Modal.Content>
               <Modal.Actions>
-                <Button color="basic grey" onClick={() => this.toggleModal()}>Cancel</Button>
+                <Button basic grey onClick={() => this.toggleModal()}>Cancel</Button>
                 <Button
                   content="Confirm"
                   labelPosition="right"
                   icon="checkmark"
                   onClick={() => {
                     this.toggleModal();
+                    confirmNotify();
                     this.toggleHandler();
                     this.props.createUserKindness(this.props.kindnessObj, this.state.date);
                   }}
@@ -112,7 +122,10 @@ class CategoryCard extends React.Component {
           )}
         </Card.Content>
       </Card>
+      <Toaster/>
+      </>
     );
+    
   }
 }
 

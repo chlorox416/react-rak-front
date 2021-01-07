@@ -20,6 +20,8 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    window.scrollTo(0, 0)
+
     Promise.all([
       fetch("http://localhost:3000/api/v1/kindnesses"),
       fetch("http://localhost:3000/api/v1/users"),

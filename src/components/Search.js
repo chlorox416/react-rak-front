@@ -8,7 +8,7 @@ class Search extends React.Component {
             <Form className="search">
                <Divider horizontal>Search Here</Divider>
                 <Form.Field>
-            <Form.Input inline type="text" name="searchTerm" placeholder="Any Word..." value={this.props.searchTerm} onChange={this.props.handleChange}/>
+            <Form.Input inline type="text" name="searchTerm" placeholder="keyword/category" value={this.props.searchTerm} onChange={this.props.handleChange}/>
                 </Form.Field>
             </Form>
         );

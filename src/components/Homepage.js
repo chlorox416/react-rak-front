@@ -26,8 +26,8 @@ export default class homepage extends Component {
                                 Let's Begin
                                 </Button>
                                 </Link>
-                    <p>.
-                        
+                    <p>
+                    <img height="200px" className="icon" alt="icon" src="./trio.png" />
 
                     </p>
                 {/* <button class="ui tiny button" onClick={() => this.props.removeHandler(this.props.kindnessObj.id)}>Delete</button><></> */}

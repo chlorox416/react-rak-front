@@ -9,8 +9,9 @@
   justify-content: center;
 }
 
-/* .modal-three-buttons {
-    margin-left: auto;
-    margin-right: auto;
-  }
-   */
+.grid {
+  position: center;
+  justify-content: center;
+}
+
+

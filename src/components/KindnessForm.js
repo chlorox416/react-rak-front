@@ -11,7 +11,8 @@ class KindnessForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.addKindness(this.state);
-    event.target.reset();
+    // event.target.reset();
+    this.setState({act: "", category: ""})
   };
 
   handleChange = (event) => {
@@ -32,7 +33,7 @@ class KindnessForm extends Component {
             name="act"
             placeholder="New RAK..."
             className="input-text"
-            value={this.state.action}
+            value={this.state.act}
             onChange={this.handleChange}
           />
         </Form.Field>
@@ -47,7 +48,7 @@ class KindnessForm extends Component {
             onChange={this.handleChange}
           />
         </Form.Field>
-        <Button type="submit">Create New RAK!</Button>
+        <Button onClick={this.handleSubmit}>Create New RAK!</Button>
       </Form>
     );
   }
